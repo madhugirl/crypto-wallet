@@ -17,14 +17,15 @@ from web3.gas_strategies.time_based import medium_gas_price_strategy
 from web3 import Web3
 
 
-w3 = Web3(Web3.HTTPProvider('http://127.0.0.1:7545'))
+#w3 = Web3(Web3.HTTPProvider('https://kovan.infura.io/v3/812452009e1a419289aea5abcb8e3734'))
 ################################################################################
 # Wallet functionality
 
 def generate_account():
     """Create a digital wallet and Ethereum account from a mnemonic seed phrase."""
     # Fetch mnemonic from environment variable.
-    mnemonic = os.getenv("GANACHE_MNENOMIC")
+    #mnemonic = os.getenv("MNENOMIC")
+    mnemonic = "belt pistol slight foot online oil wolf punch alarm panic dust kick"
 
     # Create Wallet Object
     wallet = Wallet(mnemonic)
@@ -37,7 +38,7 @@ def generate_account():
 
     return account
 
-def get_balance(address):
+def get_balance(w3, address):
     """Using an Ethereum account address access the balance of Ether"""
     # Get balance of address in Wei
     wei_balance = w3.eth.get_balance(address)

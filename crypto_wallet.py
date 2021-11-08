@@ -1,10 +1,4 @@
-# Cryptocurrency Wallet
-################################################################################
-
-# This file contains the Ethereum transaction functions that you have created throughout this module’s lessons. By using import statements, you will integrate this `crypto_wallet.py` Python script into the Fintech Finder interface program that is found in the `fintech_finder.py` file.
-
-################################################################################
-# Imports
+"""Importing needed libraries"""
 import os
 import requests
 from dotenv import load_dotenv
@@ -20,6 +14,8 @@ from web3 import Web3
 #w3 = Web3(Web3.HTTPProvider('https://kovan.infura.io/v3/812452009e1a419289aea5abcb8e3734'))
 ################################################################################
 # Wallet functionality
+
+""" creating a generate accoount function from w3 to create public and private keys"""
 
 def generate_account():
     """Create a digital wallet and Ethereum account from a mnemonic seed phrase."""
@@ -38,6 +34,8 @@ def generate_account():
 
     return account
 
+""" creating a get balance functio to read the balance in each wallet in ether from wei """
+
 def get_balance(w3, address):
     """Using an Ethereum account address access the balance of Ether"""
     # Get balance of address in Wei
@@ -49,6 +47,7 @@ def get_balance(w3, address):
     # Return the value in ether
     return ether
 
+""" defining a send transaction function to send ether to any eth wallet """
 
 def send_transaction(account, to, wage):
     """Send an authorized transaction to the Kovan testnet."""
@@ -71,8 +70,12 @@ def send_transaction(account, to, wage):
         "nonce": w3.eth.getTransactionCount(account.address)
     }
 
+
+
     # Sign the raw transaction with ethereum account
     signed_tx = account.signTransaction(raw_tx)
 
     # Send the signed transactions
     return w3.eth.sendRawTransaction(signed_tx.rawTransaction)
+
+""" creating a sign transaction function within the function to sign with private key """

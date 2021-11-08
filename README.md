@@ -2,7 +2,7 @@
 
 ### Streamlit App
 
-![alt text](https://github.com/madhugirl/crypto-wallet/blob/main/streamlit%20app.png)
+![alt text](https://github.com/madhugirl/crypto-wallet/blob/main/updated%20app.png)
 
 ### My Eth Address
 
